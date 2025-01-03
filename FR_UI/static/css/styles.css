@@ -1,0 +1,150 @@
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100vh;
+}
+
+/* Main container to hold video and cropped images */
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  width: 100%;
+}
+
+/* Left container for video and buttons */
+.left-container {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Video styling */
+video {
+  width: 100%; 
+  height: auto; 
+  max-width: 100%;
+  border: 2px solid #333;
+  border-radius: 10px;
+}
+
+/* Button container styling */
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Buttons styling */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, opacity 0.3s;
+}
+
+button#clickButton {
+  background-color: #4CAF50;
+  color: white;
+}
+
+button#backButton {
+  background-color: #f44336;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Cropped image container on the right */
+.cropped-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  overflow-y: auto;
+  border-left: 1px solid #ccc;
+  padding: 20px;
+  max-height: 90vh;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual cropped items styling */
+.cropped-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Cropped image styles */
+.cropped-img {
+  max-width: 150px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #ddd;
+}
+
+/* Input field for labels */
+.label-input {
+  width: 100%;
+  max-width: 200px;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Submit button inside cropped items */
+.submit-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #28a745;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #218838;
+}
+
+/* Scroll bar for overflow content */
+.cropped-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.cropped-container::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 5px;
+}
+
+.cropped-container::-webkit-scrollbar-thumb:hover {
+  background-color: #888;
+}

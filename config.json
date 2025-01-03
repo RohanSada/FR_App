@@ -1,0 +1,19 @@
+{
+    "Server_Details": {
+        "Host": "0.0.0.0",
+        "Port": 3000
+    },
+    "MongoDB": {
+        "url": "mongodb://mongodb:27017/",
+        "database_name": "FR",
+        "collection_name": "face_embeddings"
+    },
+    "Detector": {
+        "prototxt_path":"./FR_Server/Models/Detector/deploy.prototxt",
+        "model_path": "./FR_Server/Models/Detector/res10_300x300_ssd_iter_140000.caffemodel",
+        "threshold": 0.5
+    },
+    "Recognizer": {
+        "model_path": "./FR_Server/Models/Detector/res10_300x300_ssd_iter_140000.caffemodel"
+    }
+}

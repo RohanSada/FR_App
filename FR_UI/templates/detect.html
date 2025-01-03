@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detect Face</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <style>
+        #overlayCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        .video-container {
+            position: relative;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="left-container">
+            <div class="video-container">
+                <video id="videoFeed" autoplay></video>
+                <canvas id="overlayCanvas"></canvas>
+            </div>
+            <div class="buttons">
+                <button id="backButton">Back</button>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/detect.js"></script>
+</body>
+</html>
