@@ -22,7 +22,7 @@ if ! docker network inspect "$NETWORK_NAME" &>/dev/null; then
 fi
 
 echo "Building Docker Images..."
-docker build -t mongo -f Dockerfile.mongo .
 docker build -t tf_dev -f Dockerfile.server .
+docker build -t mongo -f Dockerfile.mongo .
 
 echo "FR Application setup completed."

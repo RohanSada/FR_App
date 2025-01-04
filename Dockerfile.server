@@ -1,27 +1,31 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
-ARG DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONUNBUFFERED=1
 
-RUN apt-get update && \
-    apt-get install -y \
-    python3 \
+RUN apt-get update && apt-get install -y \
+    python3.10 \
     python3-pip \
     python3-dev \
-    libgl1-mesa-glx \          
-    libglib2.0-0 \             
-    libsm6 \
-    libxext6 \
-    libxrender-dev \
-    build-essential && \
-    apt-get clean
+    build-essential \
+    libatlas-base-dev \
+    libhdf5-dev \
+    && apt-get clean
 
-RUN pip3 install --no-cache-dir \
-    tensorflow \
-    opencv-python-headless \
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1
+
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel \
+    && pip install --no-cache-dir tensorflow
+
+RUN pip install --no-cache-dir \
     flask \
+    opencv-python-headless \
     scipy \
-    pymongo
+    pymongo \
+    keras_facenet
 
 WORKDIR /usr/src/app
+
+COPY . /usr/src/app
 
 EXPOSE 3000
