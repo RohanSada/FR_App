@@ -7,11 +7,6 @@ if ! command -v docker &> /dev/null; then
     exit 1
 fi
 
-echo "Extracting and loading docker images..."
-zstd -dc ./docker_images/tf_dev.tar.zst | docker load
-zstd -dc ./docker_images/mongo.tar.zst | docker load
-echo "Images Loaded"
-
 if [ -d "Database" ]; then
     echo "Removing existing Database directory..."
     rm -rf Database
@@ -19,5 +14,15 @@ fi
 echo "Creating Database directory..."
 mkdir Database
 echo "Database directory is ready."
+
+NETWORK_NAME="fr_network"
+
+if ! docker network inspect "$NETWORK_NAME" &>/dev/null; then
+    docker network create "$NETWORK_NAME"
+fi
+
+echo "Building Docker Images..."
+docker build -t mongo -f Dockerfile.mongo .
+docker build -t tf_dev -f Dockerfile.server .
 
 echo "FR Application setup completed."

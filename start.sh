@@ -1,11 +1,5 @@
 #!/bin/bash
 
-NETWORK_NAME="fr_network"
-
-if ! docker network inspect "$NETWORK_NAME" &>/dev/null; then
-    docker network create "$NETWORK_NAME"
-fi
-
 echo "Starting MongoDB container..."
 docker run --rm -d --name mongodb --network "$NETWORK_NAME" -p 27017:27017 -v ./database:/data/db mongo
 echo "MongoDB started!"
